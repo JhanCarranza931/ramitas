@@ -258,62 +258,50 @@ const submitForm = () => {
 
 const consultarDocumento = async () => {
   const { tipoDocumento, numeroDocumento } = form.value;
-  
-  // Validate input before making API call
-  apiError.value = "";
-  
+  apiError.value = ""; // Limpiar mensaje de error previo
   if (!tipoDocumento) {
     apiError.value = "Por favor, selecciona un tipo de documento.";
+    setTimeout(() => (apiError.value = ""), 5000); // Ocultar mensaje después de 5 segundos
     return;
   }
-  
   if (!numeroDocumento) {
     apiError.value = "Por favor, ingresa un número de documento.";
+    setTimeout(() => (apiError.value = ""), 5000); // Ocultar mensaje después de 5 segundos
     return;
   }
-  
   if (tipoDocumento === "dni" && numeroDocumento.length !== 8) {
     apiError.value = "El DNI debe tener 8 dígitos.";
+    setTimeout(() => (apiError.value = ""), 5000); // Ocultar mensaje después de 5 segundos
     return;
   }
-  
   if (tipoDocumento === "ruc" && numeroDocumento.length !== 11) {
     apiError.value = "El RUC debe tener 11 dígitos.";
+    setTimeout(() => (apiError.value = ""), 5000); // Ocultar mensaje después de 5 segundos
     return;
   }
-  
-  // Prepare API URL
-  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJtYWtlcmFuZHJlQGdtYWlsLmNvbSJ9.3kHO2Sr0qAtysPi9QnUmova5RMkkuMVSUZK6vYMqGSI";
+
+  // Lógica de consulta a la API
+  const token =
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJtYWtlcmFuZHJlQGdtYWlsLmNvbSJ9.3kHO2Sr0qAtysPi9QnUmova5RMkkuMVSUZK6vYMqGSI";
   let url = "";
-  
   if (tipoDocumento === "dni") {
     url = `https://dniruc.apisperu.com/api/v1/dni/${numeroDocumento}?token=${token}`;
   } else if (tipoDocumento === "ruc") {
     url = `https://dniruc.apisperu.com/api/v1/ruc/${numeroDocumento}?token=${token}`;
   } else {
-    // For "otro" type, allow manual input
     isReadOnly.value = false;
     return;
   }
-  
-  // Make API request
   isLoading.value = true;
-  
   try {
     const response = await fetch(url);
-    
     if (!response.ok) {
       throw new Error(`Error en la solicitud: ${response.status}`);
     }
-    
     const data = await response.json();
-    
-    // Check if the API returned an error
     if (data.success === false || data.error) {
       throw new Error(data.message || "No se encontraron datos");
     }
-    
-    // Process data based on document type
     if (tipoDocumento === "dni") {
       if (data.nombres) {
         form.value.nombres = `${data.nombres} ${data.apellidoPaterno} ${data.apellidoMaterno}`.trim();
@@ -333,22 +321,15 @@ const consultarDocumento = async () => {
   } catch (error) {
     console.error("Error al consultar el documento:", error);
     apiError.value = `No se encontraron datos. ${error.message}. Puedes ingresar los datos manualmente.`;
+    setTimeout(() => (apiError.value = ""), 5000); // Ocultar mensaje después de 5 segundos
     isReadOnly.value = false;
   } finally {
     isLoading.value = false;
   }
 };
 
-// Función para compartir el reclamo por WhatsApp
-const compartirWhatsApp = () => {
-  const mensaje = `*Reclamo de ${form.value.nombres}*\n` +
-    `Documento: ${form.value.tipoDocumento.toUpperCase()} ${form.value.numeroDocumento}\n` +
-    `Detalle: ${form.value.detalleProblema}\n` +
-    `Pedido: ${form.value.pedidoConsumidor}`;
-    
-  const url = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
-};
+
+
 </script>
 
 <style scoped>
@@ -498,4 +479,50 @@ const compartirWhatsApp = () => {
   color: #333;
   border: 1px solid #ccc;
 }
+
+/* Estilo del botón "Buscar" */
+.btn-primary {
+  background-color: #0a5029;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Outfit;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #165819; /* Color más claro en hover */
+}
+
+/* Mensajes de error flotantes */
+.error-message {
+  position: absolute;
+  bottom: -20px; /* Debajo del input */
+  left: 0;
+  font-size: 12px;
+  color: red;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid red;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  font-family: Outfit;
+}
+
+/* Hover en el botón "Enviar reclamo" */
+.button-primary:hover {
+  background-color: #165819; /* Color más claro en hover */
+}
+
+/* Ajustes para el contenedor del botón "Buscar" */
+.input-button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative; /* Para posicionar el mensaje de error */
+}
+
 </style>

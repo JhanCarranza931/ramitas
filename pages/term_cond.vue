@@ -1,51 +1,69 @@
 <template>
-    <section class="cookies-policy p-6">
-      <h1 class="text-center text-2xl font-bold mb-4">Nuestras Políticas de Cookies</h1>
-      <p class="mb-4">En Ramitas Selváticas, utilizamos cookies y tecnologías similares para mejorar su experiencia en nuestro sitio web <a href="https://www.ramitasselvaticas.com" class="text-blue-500 hover:text-blue-700">www.ramitasselvaticas.com</a>. Esta política explica qué son las cookies, cómo las usamos y cómo puede gestionarlas.</p>
-  
-      <h2 class="text-xl font-semibold mt-6 mb-2">¿Qué son las cookies?</h2>
-      <p>Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten que el sitio recuerde sus preferencias y le brinde una experiencia más personalizada.</p>
-  
-      <h2 class="text-xl font-semibold mt-6 mb-2">¿Qué tipos de cookies utilizamos?</h2>
-      <ol class="list-decimal list-inside mb-4">
-        <li><strong>Cookies esenciales:</strong>
-          <ul class="list-disc list-inside ml-4">
-            <li>Son necesarias para el funcionamiento básico del sitio web.</li>
-            <li>Permiten la navegación y el acceso a áreas seguras.</li>
-            <li>Sin estas cookies, algunos servicios no funcionarían correctamente.</li>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <div class="container max-w-[1000px] mx-auto font-sans">
+      <div class="header-box font-bold text-center">
+          <h2 class="title-small text-green-900 font-outfit">Términos y condiciones</h2>
+          <h1 class="title-large text-xl font-outfit">Nuestros Términos y Condiciones</h1>
+      </div>
+
+      <div class="info-box py-12 font-outfit">
+          <h3 class="font-bold text-green-800">RAZÓN SOCIAL: RAMITAS SELVÁTICAS EIRL</h3>
+          <p>RUC: 20611935421</p>
+      </div>
+
+      <div class="info-box font-outfit">
+          <h3 class="font-bold text-green-800">Introducción</h3>
+          <p>
+              Bienvenido a Ramitas Selváticas E.I.R.L. Al acceder y utilizar este Sitio, aceptas cumplir con estos términos y condiciones. Si no estás de acuerdo con alguno de los términos, te recomendamos que no utilices nuestros servicios.
+          </p>
+      </div>
+
+      <div class="info-box py-10 font-outfit">
+          <h3 class="font-bold text-green-800">Uso del sitio web</h3>
+          <p>
+              El uso del sitio está permitido exclusivamente para fines legales y personales. No se permite utilizarlo para actividades fraudulentas, ilegales o que puedan dañar su funcionamiento o afectar la experiencia de otros usuarios. Nos reservamos el derecho de restringir el acceso a cualquier usuario que incumpla estos términos.
+          </p>
+      </div>
+
+      <div class="info-box font-outfit">
+          <h3 class="font-bold text-green-800">Propiedad intelectual</h3>
+          <p>
+              Ramitas Selváticas y su logotipo son marcas registradas en Perú, protegidas por las leyes de propiedad intelectual y derechos de autor. No se permite el uso no autorizado de la marca, logotipo o cualquier elemento distintivo de Ramitas Selváticas E.I.R.L. sin el consentimiento previo y por escrito de la empresa. Además, todos los contenidos de este sitio web, incluidos textos, imágenes, gráficos y código fuente, son propiedad de Ramitas Selváticas o de sus respectivos titulares y están protegidos por la normativa vigente en materia de propiedad intelectual.
+          </p>
+      </div>
+
+      <div class="info-box py-10 font-outfit">
+          <h3 class="font-bold text-green-800">Exclusión de responsabilidad</h3>
+          <ul class="list-disc ml-6">
+              <li>No garantizamos que el sitio web esté siempre disponible o libre de errores.</li>
+              <li>No nos hacemos responsables de daños o pérdidas derivadas del uso de la información contenida en el sitio.</li>
+              <li>Cada usuario accede y utiliza este sitio bajo su propia responsabilidad.</li>
           </ul>
-        </li>
-        <li><strong>Cookies de rendimiento y análisis:</strong>
-          <ul class="list-disc list-inside ml-4">
-            <li>Nos ayudan a entender cómo los usuarios interactúan con nuestro sitio.</li>
-            <li>Recopilan información de manera anónima sobre visitas, páginas vistas y errores del sistema.</li>
-            <li>Utilizamos herramientas como Google Analytics para mejorar la funcionalidad de nuestra web.</li>
+      </div>
+
+      <div class="info-box font-outfit">
+          <h3 class="font-bold text-green-800">Modificación de los términos y condiciones</h3>
+          <p>
+              Nos reservamos el derecho de modificar estos términos en cualquier momento. Cualquier cambio será publicado en esta página y entrará en vigor inmediatamente después de su publicación. Se recomienda revisar periódicamente esta sección para estar al tanto de posibles actualizaciones.
+          </p>
+      </div>
+
+      <div class="info-box py-10 font-outfit">
+          <h3 class="font-bold text-green-800">Enlaces a terceros</h3>
+          <ul class="list-disc ml-6">
+              <li>No tenemos control sobre el contenido, la disponibilidad o la política de estos sitios y no nos hacemos responsables de su funcionamiento ni seguridad.</li>
+              <li>El uso de estos enlaces es bajo tu propio riesgo.</li>
           </ul>
-        </li>
-        <li><strong>Cookies de funcionalidad:</strong>
-          <ul class="list-disc list-inside ml-4">
-            <li>Permiten recordar sus preferencias, como el idioma o la región.</li>
-            <li>Mejoran su experiencia de navegación, evitando que deba configurar sus preferencias cada vez que accede al sitio.</li>
-          </ul>
-        </li>
-      </ol>
-  
-      <h2 class="text-xl font-semibold mt-6 mb-2">¿Cómo gestionar las cookies?</h2>
-      <p>Puede aceptar, rechazar o eliminar cookies a través de la configuración de su navegador. A continuación, le proporcionamos enlaces con información sobre cómo administrar cookies en los principales navegadores:</p>
-      <ul class="list-disc list-inside mb-4">
-        <li><a href="#" class="text-blue-500 hover:text-blue-700">Google Chrome</a></li>
-        <li><a href="#" class="text-blue-500 hover:text-blue-700">Mozilla Firefox</a></li>
-        <li><a href="#" class="text-blue-500 hover:text-blue-700">Microsoft Edge</a></li>
-        <li><a href="#" class="text-blue-500 hover:text-blue-700">Safari</a></li>
-      </ul>
-      <p>Si decide bloquear algunas cookies, es posible que ciertas funciones de nuestro sitio no estén disponibles o no funcionen correctamente.</p>
-  
-      <h2 class="text-xl font-semibold mt-6 mb-2">Cambios en nuestra política de cookies</h2>
-      <p>Podemos actualizar esta política en cualquier momento para reflejar cambios en nuestras prácticas o regulaciones. Se recomienda revisar esta página periódicamente para estar informado sobre cómo utilizamos las cookies.</p>
-  
-      <h2 class="text-xl font-semibold mt-6 mb-2">Contacto</h2>
-      <p>Si tiene preguntas sobre nuestra política de cookies, puede contactarnos a través de:</p>
-      <p>Correo electrónico: <a href="mailto:info@ramitasselvaticas.com" class="text-blue-500 hover:text-blue-700">info@ramitasselvaticas.com</a></p>
-      <p>Teléfono: <a href="tel:+51979153402" class="text-blue-500 hover:text-blue-700">+51 979 153 402</a></p>
-    </section>
-  </template>
+      </div>
+
+      <div class="info-box font-outfit">
+          <h3 class="font-bold text-green-800">Contacto</h3>
+          <p>
+              Si tienes dudas sobre estos términos, puedes comunicarte con nosotros a través de:<br>
+              Correo electrónico: <a class="font-bold">info@ramitasselvaticas.com</a><br>
+              Teléfono: <a class="font-bold">+51 979 513 402</a>
+          </p>
+      </div>
+  </div>
+</template>
+
