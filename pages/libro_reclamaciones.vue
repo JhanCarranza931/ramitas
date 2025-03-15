@@ -101,12 +101,12 @@
 
       <div class="form-section">
         <h2 class="section-title" style="color: green">Datos del reclamo</h2>
-        <div class="form-group">
+        <div class="form-group font-outfit">
           <label class="form-label">Fecha (*)</label>
           <input type="date" v-model="form.fecha" class="form-input" required />
         </div>
 
-        <div class="form-group">
+        <div class="form-group font-outfit">
           <label class="form-label">Descripción del producto o servicio (*)</label>
           <textarea
             v-model="form.descripcionProducto"
@@ -127,7 +127,7 @@
               required
             />
           </div>
-          <div class="form-group">
+          <div class="form-group font-outfit">
             <label class="form-label">Tipo</label>
             <select v-model="form.tipo" class="form-select">
               <option value="" disabled selected>seleccionar</option>
@@ -137,7 +137,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group font-outfit">
           <label class="form-label">Detalle del problema (*)</label>
           <textarea
             v-model="form.detalleProblema"
@@ -147,7 +147,7 @@
           ></textarea>
         </div>
 
-        <div class="form-group">
+        <div class="form-group font-outfit">
           <label class="form-label">Pedido del consumidor (*)</label>
           <textarea
             v-model="form.pedidoConsumidor"
@@ -233,7 +233,7 @@ const limpiarFormulario = () => {
 };
 
 const onTipoDocumentoChange = () => {
-  // Reset fields when document type changes
+
   form.value.numeroDocumento = "";
   form.value.nombres = "";
   form.value.direccion = "";
@@ -280,7 +280,7 @@ const consultarDocumento = async () => {
     return;
   }
 
-  // Lógica de consulta a la API
+
   const token =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJtYWtlcmFuZHJlQGdtYWlsLmNvbSJ9.3kHO2Sr0qAtysPi9QnUmova5RMkkuMVSUZK6vYMqGSI";
   let url = "";
@@ -326,9 +326,7 @@ const consultarDocumento = async () => {
   } finally {
     isLoading.value = false;
   }
-};
-
-
+}
 
 </script>
 
@@ -394,7 +392,7 @@ const consultarDocumento = async () => {
   margin-bottom: 15px;
   font-family: Outfit;
 }
-
+/* Responsive*/
 @media (min-width: 768px) {
   .form-row {
     flex-direction: row;
@@ -493,13 +491,13 @@ const consultarDocumento = async () => {
 }
 
 .btn-primary:hover {
-  background-color: #165819; /* Color más claro en hover */
+  background-color: #165819; 
 }
 
 /* Mensajes de error flotantes */
 .error-message {
   position: absolute;
-  bottom: -20px; /* Debajo del input */
+  bottom: -20px; 
   left: 0;
   font-size: 12px;
   color: red;
@@ -512,17 +510,17 @@ const consultarDocumento = async () => {
   font-family: Outfit;
 }
 
-/* Hover en el botón "Enviar reclamo" */
+
 .button-primary:hover {
-  background-color: #165819; /* Color más claro en hover */
+  background-color: #165819;
 }
 
-/* Ajustes para el contenedor del botón "Buscar" */
+
 .input-button-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  position: relative; /* Para posicionar el mensaje de error */
+  position: relative; 
 }
 
 </style>
