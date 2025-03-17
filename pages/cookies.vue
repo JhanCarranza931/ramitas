@@ -4,7 +4,7 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
             rel="stylesheet">
-        <div class="container max-w-[1000px] mx-auto font-sans">
+        <div class="container max-w-[1440px] mx-auto font-sans">
             <div class="header-box font-bold text-center">
                 <h2 class="title-small text-green-900  text-sm">Políticas de Cookies</h2>
                 <h1 class="title-large text-2xl  font-medium p-2 ">Nuestros Políticas de Cookies</h1>

@@ -1,7 +1,7 @@
 <template>
   <body class="font-outfit font-sans">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <div class="container max-w-[1000px] mx-auto font-sans">
+    <div class="container max-w-[1440px] mx-auto font-sans">
       <div class="border border-dotted border-[#a0c0e0] p-4 mb-4 rounded">
         <h2 class="text-center text-sm text-green-900 mb-">LIBRO DE RECLAMACIONES</h2>
         <h1 class="text-center text-2xl font-medium mb-2">Registra una queja o reclamo</h1>
