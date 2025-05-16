@@ -182,6 +182,10 @@
 
 <script setup>
 import { ref } from "vue";
+  useHead({
+        title:'Libro de reclamaciones',
+        meta :[{name:'description',content:'Ramitas Selváticas cuenta con un libro de reclamaciones a tu disposición.'} ]
+    })
 
 const isLoading = ref(false);
 const isSubmitting = ref(false);
@@ -240,6 +244,7 @@ const submitForm = async () => {
     body : JSON.stringify(form.value)
   })
   const result = await response.json()
+  limpiarFormulario()
   console.log(result)
 };
 
@@ -263,7 +268,7 @@ const consultarDocumento = async () => {
   }
   if (tipoDocumento === "ruc" && numeroDocumento.length !== 11) {
     apiError.value = "El RUC debe tener 11 dígitos.";
-    setTimeout(() => (apiError.value = ""), 5000); // Ocultar mensaje después de 5 segundos
+    setTimeout(() => (apiError.value = ""), 5000); 
     return;
   }
 

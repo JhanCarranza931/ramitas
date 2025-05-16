@@ -83,3 +83,10 @@
 
         </div>
 </template>
+
+<script setup>  
+useHead({
+        title:'Términos y condiciones ',
+        meta :[{name:'description',content:'Nuestros terminos y condiciones'} ]
+    })
+</script>

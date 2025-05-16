@@ -2,30 +2,43 @@
 <template>
     <main class="max-w-[1220px] pl-10 pr-10 m-auto ">
         
-        <header class="flex justify-between h-[64px] items-center fixed top-0 w-[1140px] z-50 bg-[#FBFBFB]">
-            <a href="/#">
-                <img  class=" h-9" src="../assets/img/ramitas-logo.svg"  alt="logo">
-            </a>
-            <nav class="flex gap-4 text-sm">
-                <a href="/#" class="relative px-4 py-1  group">Inicio
-                    <span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 
-                    transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
-                </a>
-                <a href="#" @click.prevent="scrollTo('nosotros')" class="relative px-4 py-1  group" >Nosotros<span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 
-                    transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span></a>
-                <a href="#marcas" @click.prevent="scrollTo('marcas')" class="relative px-4 py-1  group">Marcas<span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 
-                    transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span></a>
-                <a href="#contacto" @click.prevent="scrollTo('contacto')" class="relative px-4 py-1  group">Contacto<span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 
-                    transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span></a>
-            </nav>
-        </header>
+        <header class="flex justify-between h-[64px] items-center fixed top-0 max-w-[1140px] w-full z-50 bg-[#FBFBFB] max-md:pr-20">
+  <a href="/#">
+    <img class="h-9" src="../assets/img/ramitas-logo.svg" alt="logo">
+  </a>
+
+  <!-- Botón hamburguesa -->
+  <button @click="isMenuOpen = !isMenuOpen" class="md:hidden z-50">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Menú de navegación -->
+  <nav :class="['flex gap-4 text-sm max-md:flex-col max-md:bg-white max-md:fixed max-md:top-0 max-md:right-0 max-md:h-screen max-md:w-[75%] max-md:pt-20 max-md:pl-6 transition-transform duration-300 ease-in-out', isMenuOpen ? 'max-md:translate-x-0' : 'max-md:translate-x-full']">
+    <a href="/#" class="relative px-4 py-1 group">Inicio
+      <span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+    </a>
+    <a href="#" @click.prevent="scrollTo('nosotros')" class="relative px-4 py-1 group">Nosotros
+      <span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+    </a>
+    <a href="#marcas" @click.prevent="scrollTo('marcas')" class="relative px-4 py-1 group">Marcas
+      <span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+    </a>
+    <a href="#contacto" @click.prevent="scrollTo('contacto')" class="relative px-4 py-1 group">Contacto
+      <span class="absolute left-0 bottom-0 h-[1.7px] w-full bg-black scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+    </a>
+  </nav>
+</header>
+
         <main class="mt-24 flex flex-col gap-24"> 
             <slot />
         </main>
         <footer class="flex flex-col gap-10 pt-8 pb-8 border-t border-[#EEEEEE] text-sm">
             <section class="flex justify-between items-end">
                 <div>
-                    <img src="../assets/img/logor.png" class="h-[43px]" alt="Logo">
+                    <img src="../assets/img/ramitas-logo.svg" class="h-[43px]" alt="Logo">
                     <p class="pt-3">RUC:938438424</p>
                     <p>RAMITAS SELVÁTICAS E.I.R.L</p>
                 </div>
@@ -55,15 +68,17 @@
 <script setup>
 import { useRouter } from 'vue-router';
 
-
+const isMenuOpen = ref(false)
 const router = useRouter();
 
 const scrollTo = async (id) => {
   if (window.location.pathname !== '/') {
     await router.push({ path: '/', hash: `#${id}` });
+    isMenuOpen.value = false
 
   } else {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    isMenuOpen.value = false
   }
 };
 </script>

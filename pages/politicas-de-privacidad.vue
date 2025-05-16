@@ -1,3 +1,10 @@
+<script setup>
+useHead({
+        title:'Políticas de privacidad',
+        meta :[{name:'description',content:'Nustras políticas de privacidad'} ]
+    })
+</script>
+
 <template>
         <div class="container max-w-[800px] mx-auto  pb-28">
             <div class="header-box font-semibold text-center">

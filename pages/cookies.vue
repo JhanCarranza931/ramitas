@@ -1,3 +1,9 @@
+<script setup>
+useHead({
+        title:'Cookies',
+        meta :[{name:'description',content:'Acerca de nuestras cookies'} ]
+    })
+</script>
 <template>
         <div class="container max-w-[800px] mx-auto pb-28">
             <div class="header-box font-bold text-center">
